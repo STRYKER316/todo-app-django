@@ -40,4 +40,13 @@ def delete_task(request, task_id):
 def edit_task(request, task_id):
     task = get_object_or_404(Task, id=task_id)
 
-    return render(request, 'edit_task.html')
+    if request.method == 'POST':
+        task.description = request.POST['edit_task_form']
+        task.save()
+        return redirect('home')
+
+    if request.method == 'GET':
+        context = {
+            'task': task,
+        }
+        return render(request, 'edit_task.html', context)
