@@ -4,10 +4,10 @@ from todo_app.models import Task
 
 
 def home(request):
-    pendingTasks = Task.objects.filter(is_completed=False).order_by('-updated_at')
-    completedTasks = Task.objects.filter(is_completed=True).order_by('-updated_at')
+    pending_tasks = Task.objects.filter(is_completed=False).order_by('-updated_at')
+    completed_tasks = Task.objects.filter(is_completed=True).order_by('-updated_at')
     context = {
-        'pendingTasks': pendingTasks,
-        'completedTasks': completedTasks,
+        'pending_tasks': pending_tasks,
+        'completed_tasks': completed_tasks,
     }
     return render(request, 'home.html', context)
