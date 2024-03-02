@@ -11,4 +11,6 @@ urlpatterns = [
     path('revert_completed_task/<int:task_id>/', views.revert_completed_task, name='revert_completed_task'),
     # Delete a task
     path('delete_task/<int:task_id>/', views.delete_task, name='delete_task'),
+    # Edit a task
+    path('edit_task/<int:task_id>/', views.edit_task, name='edit_task'),
 ]

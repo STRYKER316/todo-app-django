@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Task
 
 
@@ -34,3 +34,10 @@ def delete_task(request, task_id):
     task.delete()
     
     return redirect('home')
+
+
+# Edit a task
+def edit_task(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+
+    return render(request, 'edit_task.html')
